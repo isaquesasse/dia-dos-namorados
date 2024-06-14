@@ -191,7 +191,7 @@ body, html {
 
 .final-message {
     text-align: left; /* Align text to the left */
-    font-size: 26px;
+    font-size: 22px;
     color: black;
     position: absolute;
     top: 10px; /* Position at the top */
