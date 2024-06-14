@@ -1,0 +1,212 @@
+body, html {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    font-family: 'Dancing Script', cursive;
+    color: #333;
+    overflow: hidden;
+    position: relative;
+}
+
+.heart-container {
+    position: relative;
+    width: 400px;
+    height: 360px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.half-heart {
+    position: absolute;
+    width: 200px;
+    height: 320px;
+    background-color: red;
+    border-radius: 200px 200px 0 0;
+    transition: all 0.5s ease;
+}
+
+.half-heart.left {
+    left: 142px;
+    bottom: 150px;
+    transform: rotate(-45deg);
+    transform-origin: 100% 100%;
+}
+
+.half-heart.right {
+    left: 60px;
+    bottom: 150px;
+    transform: rotate(45deg);
+    transform-origin: 0 100%;
+}
+
+.half-heart.left.open {
+    transform: translateX(-1500px) rotate(0);
+}
+
+.half-heart.right.open {
+    transform: translateX(1500px) rotate(0);
+}
+
+.message {
+    text-align: center; /* Align text to the center */
+    font-size: 40px;
+    position: absolute;
+    transform: scale(0);
+    transition: transform 1s ease;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    color: #B22222;
+}
+
+.message.show {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.buttons {
+    margin-left: 20px;
+    margin-top: 20px;
+    display: flex;
+    gap: 20px;
+}
+
+.buttons button {
+    font-family: 'Dancing Script', cursive;
+    padding: 10px 20px;
+    font-size: 24px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    position: relative;
+    transition: left 0.5s ease, top 0.5s ease;
+}
+
+.buttons .no {
+    background-color: #ff4c4c;
+    color: white;
+}
+
+.buttons .no:hover {
+    background-color: #ff1a1a;
+}
+
+.buttons .yes {
+    background-color: #4caf50;
+    color: white;
+}
+
+.buttons .yes:hover {
+    background-color: #388e3c;
+}
+
+.hidden {
+    display: none;
+}
+
+.floating-hearts {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    transform: rotate(45deg);
+    animation: float 5s infinite;
+}
+
+.heart::before,
+.heart::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    border-radius: 50%;
+}
+
+.heart::before {
+    top: -10px;
+    left: 0;
+}
+
+.heart::after {
+    top: 0;
+    left: -10px;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(1000px) rotate(45deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-1000px) rotate(45deg);
+        opacity: 0;
+    }
+}
+
+.corner-decoration {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: url('https://image.shutterstock.com/image-vector/romantic-decorative-corner-borders-floral-260nw-1228252938.jpg') no-repeat center center;
+    background-size: cover;
+}
+
+.corner-decoration.top-left {
+    top: 10px;
+    left: 10px;
+}
+
+.corner-decoration.top-right {
+    top: 10px;
+    right: 10px;
+}
+
+.corner-decoration.bottom-left {
+    bottom: 10px;
+    left: 10px;
+}
+
+.corner-decoration.bottom-right {
+    bottom: 10px;
+    right: 10px;
+}
+
+.final-message {
+    text-align: left; /* Align text to the left */
+    font-size: 26px;
+    color: black;
+    position: absolute;
+    top: 10px; /* Position at the top */
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 1s ease;
+    width: 90%;
+}
+
+.final-message-title {
+    color: #B22222;
+    font-size: 32px;
+}
+
+.final-message.show {
+    opacity: 1;
+}
